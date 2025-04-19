@@ -1,0 +1,89 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+  <h2 class="mb-4">Add New Employee</h2>
+
+  <form (ngSubmit)="save()" #employeeForm="ngForm" class="shadow p-4 rounded bg-light">
+    <div class="mb-3">
+      <label>Name</label>
+      <input
+        type="text"
+        class="form-control"
+        required
+        [(ngModel)]="employee.name"
+        name="name"
+        #name="ngModel"
+      />
+      <div *ngIf="name.invalid && name.touched" class="text-danger">
+        Name is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>Email</label>
+      <input
+        type="email"
+        class="form-control"
+        required
+        [(ngModel)]="employee.email"
+        name="email"
+        #email="ngModel"
+      />
+      <div *ngIf="email.invalid && email.touched" class="text-danger">
+        Valid email is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>Password</label>
+      <input
+        type="password"
+        class="form-control"
+        required
+        [(ngModel)]="employee.password"
+        name="password"
+        #password="ngModel"
+      />
+      <div *ngIf="password.invalid && password.touched" class="text-danger">
+        Password is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>Department</label>
+      <input
+        type="text"
+        class="form-control"
+        required
+        [(ngModel)]="employee.department"
+        name="department"
+        #department="ngModel"
+      />
+      <div *ngIf="department.invalid && department.touched" class="text-danger">
+        Department is required
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>Role</label>
+      <select
+        class="form-select"
+        required
+        [(ngModel)]="employee.role"
+        name="role"
+        #role="ngModel"
+      >
+        <option value="employee">Employee</option>
+        <option value="admin">Admin</option>
+      </select>
+    </div>
+
+    <button
+      class="btn btn-success w-100"
+      type="submit"
+      [disabled]="employeeForm.invalid"
+    >
+      Add Employee
+    </button>
+  </form>
+</div>

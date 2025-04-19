@@ -1,0 +1,10 @@
+.container {
+    max-width: 600px;
+  }
+  form {
+    background-color: #f8f9fa;
+  }
+  .text-danger {
+    font-size: 0.85rem;
+  }
+  

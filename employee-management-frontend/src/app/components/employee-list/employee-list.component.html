@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>Employee List</h3>
+    <a (click)="navigateToadd()" class="btn btn-success">+ Add Employee</a>
+  </div>
+
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees">
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.email }}</td>
+        <td>{{ emp.department }}</td>
+        <td>{{ emp.role }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm me-2" (click)="navigateToedit(emp._id!)">Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteEmployee(emp._id!)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
